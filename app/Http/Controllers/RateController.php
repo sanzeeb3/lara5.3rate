@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Band;
+use App\Song;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
@@ -16,6 +18,8 @@ class RateController extends Controller
 {
     public function index()
 	{
-		return view('rate.index');
+		$bands=Band::all();
+		$songs=Song::with('band')->get();
+		return view('rate.index')->with(['bands'=>$bands,'songs'=>$songs]);
 	}
 }

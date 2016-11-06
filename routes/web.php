@@ -11,7 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('rate.index');
-});
-
+Route::get('/', 'RateController@index');
