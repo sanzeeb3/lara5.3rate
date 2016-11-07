@@ -16,7 +16,7 @@
      					</td>
      				
      					<td class="bg-info">
-							{{$band->views}}
+							<b>{{$band->views}}</b>
      					</td>
      				</tr>	
      				@endforeach    
@@ -26,12 +26,12 @@
 	
 		<div class="col-sm-6">
 			<label>Featured Songs:</label>
-			<table class="table table-bordered">
+			<table id="featured" class="table table-bordered">
    			<thead>
-				<tr><td>S.N.</td><td>Song</td><td>Band</td><td>Total votes</td><td>Options</td></tr>
+				<tr><td>S.N.</td><td>Song</td><td>Band</td><td>Rating</td><td>Options</td></tr>
 			</thead>
 			<tbody>
-			<tr>
+			
 			<?php $i=1;?>
 			@foreach($songs as $song)
 				<tr>
@@ -39,13 +39,15 @@
 					<?php echo $i++;?>
 					</td>
 					<td>
-						{{$song->name}}
+						<b>{{$song->name}}</b><br>
+						<a href="">Download mp3</a><br>
+						<a href="<?php echo $song->link;?>">See video (yoututbe)</a>
 					</td>
 					<td>
 						{{$song->band->name}}
 					</td>
 					<td>
-						{{$song->views}}
+						<h3><b>{{$song->views}}</b></h3>
 					</td>
 					<td>
 						<select name="rate" class="form-control">
@@ -66,13 +68,43 @@
 		</div>
 		<div class="col-sm-4">
 		<h2>Add new song:</h2>
-			<form>
-				<label>Song:</label>
+			<form id="add">
+				<label>Song: <b style="color:red">*</b></label>
 				<input type="text" name="song" class="form-control"><br>
-				<label>Band:</label>
+				<label>Band: <b style="color:red">*</b></label>
 				<input type="text" name="band" class="form-control"><br>
+				<label>Upload Mp3:</label>
+				<input type="file" name="file" accept=".mp3, .mp4" class="form-control"><br>
+				<label>YouTube link:</label>
+				<input type="text" name="link" class="form-control"><br>
 				<input type="submit" class="btn btn-default" value="Add">
 			</form>
 	</div>
 </div>
+
+
+<script>
+
+$('#featured').DataTable();
+   
+$("#add").validate({
+
+    rules: {
+        song: {
+            required:true,
+
+            },
+        band:
+        {
+        	required:true,
+        },
+           file: { 
+                required: false,
+                extension: "mp3|mp3g|mp4"
+        }, 
+    },
+    });
+
+</script>
+
 @endsection

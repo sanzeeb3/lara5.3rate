@@ -19,8 +19,8 @@
 </style>
 <body>
 <div class="container-fluid" style="background-color:#F44336;color:#fff;height:120px;">
-  <h1>Title</h1>
-  <h3>Slogan here...</h3> 
+  <h1>Rate Your Favourite</h1>
+  <h3>Rate and Share your favourite songs here. See videos, download mp3 and many more...</h3> 
 </div>
 
 <nav class="navbar navbar-inverse">
