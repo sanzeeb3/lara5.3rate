@@ -12,15 +12,18 @@
 <link href="{{asset('sweetalert.css')}}" rel="stylesheet">
 <script src="{{asset('sweetalert.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
+<link href="{{asset('fileinput/fileinput.css')}}" rel="stylesheet">
+<script src="{{asset('fileinput/fileinput.js')}}"></script>
 </head>
 <style>
 
 </style>
 <body>
-<div class="container-fluid" style="background-color:#F44336;color:#fff;height:120px;">
+<div class="container-fluid" style="background-color:#F44336;color:#fff;height:140px;">
   <h1>Rate Your Favourite</h1>
-  <h3>Rate and Share your favourite songs here. See videos, download mp3 and many more...</h3> 
+  <h3>Rate and Share your favourite songs here. See videos, download mp3 and many more...<br>No login !! NO Registration!!</h3> 
 </div>
 
 <nav class="navbar navbar-inverse">

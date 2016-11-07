@@ -25,7 +25,7 @@
 		</div>
 	
 		<div class="col-sm-6">
-			<label>Featured Songs:</label>
+			<label>All Songs:</label>
 			<table id="featured" class="table table-bordered">
    			<thead>
 				<tr><td>S.N.</td><td>Song</td><td>Band</td><td>Rating</td><td>Options</td></tr>
@@ -68,13 +68,22 @@
 		</div>
 		<div class="col-sm-4">
 		<h2>Add new song:</h2>
-			<form id="add">
-				<label>Song: <b style="color:red">*</b></label>
+			<form id="add" method="POST" action="{{url('/rate/add')}}" enctype="multipart/form-data">
+		    {!! csrf_field() !!}
+			    <label>Song: <b style="color:red">*</b></label>
 				<input type="text" name="song" class="form-control"><br>
-				<label>Band: <b style="color:red">*</b></label>
-				<input type="text" name="band" class="form-control"><br>
+				<label>Band: </b></label>
+                <select class="form-control" name="selectBand">
+                    @foreach($bands as $band)
+                        <option value="{{$band->id}}">{{$band->name}}</option>
+                    @endforeach
+                </select>
 				<label>Upload Mp3:</label>
-				<input type="file" name="file" accept=".mp3, .mp4" class="form-control"><br>
+				
+				<input id="input-id" type="file" accept=".mp3" name="file" class="form-control"><br>
+				<input type="hidden" id="getfilename" name="uploadedfile" value="">   
+				<input type="hidden" id="csrf_token" name="_token" value="{{ csrf_token() }}">
+
 				<label>YouTube link:</label>
 				<input type="text" name="link" class="form-control"><br>
 				<input type="submit" class="btn btn-default" value="Add">
@@ -94,16 +103,72 @@ $("#add").validate({
             required:true,
 
             },
-        band:
-        {
-        	required:true,
-        },
+     
            file: { 
                 required: false,
                 extension: "mp3|mp3g|mp4"
         }, 
     },
     });
+
+$(document).on('submit', '#add', function (e) 
+{         
+    e.preventDefault();
+    var frm = $(this);
+    $.ajax({
+        type: frm.attr('method'),
+        url: frm.attr('action'),
+        data: frm.serialize(),
+        success: function (data)
+            {
+                var res = $.parseJSON(data);
+                if(res == true)
+                {
+                    swal({
+                        title: "Your song has been added.",
+                        type: "success",
+                        confirmButtonClass: "btn-success",
+                        confirmButtonText: "OK!",
+                        closeOnConfirm: false
+                    },
+                    	function(){
+  						  window.location.href = "{{url('/')}}";
+					});
+                }
+
+                else
+                {
+                    swal("Opps!", "Something went wrong!. Try again", "error");
+                }
+                
+            }
+    });       
+});  
+
+$("#input-id").fileinput({
+        maxFileSize: 264000,
+        uploadUrl: "{{url('/rate/uploadfile')}}", 
+        uploadAsync: true,
+        uploadExtraData:{'_token':$("#csrf_token").val()},
+        allowedFileExtensions: ['mp3', 'mp4', 'mpeg', 'flv'],
+        maxFileCount: 1,
+        showUpload: true,
+        dropZoneEnabled: false,
+      
+});
+
+$("#input-id").on('fileuploaderror', function(event, data, previewId, index) {
+    var form = data.form, files = data.files, extra = data.extra,
+        response = data.response, reader = data.reader;
+    console.log(data.response.upload_error);
+});
+
+$("#input-id").on('fileuploaded', function(event, data, previewId, index) {
+    var form = data.form, files = data.files, extra = data.extra,
+        response = data.response, reader = data.reader;
+    console.log(response);
+    $('#getfileename').val(response);
+});
 
 </script>
 
