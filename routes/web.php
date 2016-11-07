@@ -14,4 +14,5 @@
 Route::get('/', 'RateController@index');
 Route::post('rate/uploadfile', 'RateController@uploadfile');
 Route::post('rate/add', 'RateController@add');
+Route::post('rate/checkBand', 'RateController@checkBand');
 

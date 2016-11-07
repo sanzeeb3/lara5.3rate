@@ -40,8 +40,16 @@
 					</td>
 					<td>
 						<b>{{$song->name}}</b><br>
-						<a href="">Download mp3</a><br>
-						<a href="<?php echo $song->link;?>">See video (yoututbe)</a>
+						<?php if($song->mp3)
+                        {
+                            ?><a href="{{asset("newuploads/{$song->mp3}")}}">Download mp3</a><br><?php
+                        }
+                        ?>
+                        <?php if($song->link)
+                        {
+						    ?><a href="<?php echo $song->link;?>">See video (yoututbe)</a><?php
+                        }
+                        ?>
 					</td>
 					<td>
 						{{$song->band->name}}
@@ -74,10 +82,13 @@
 				<input type="text" name="song" class="form-control"><br>
 				<label>Band: </b></label>
                 <select class="form-control" name="selectBand">
+                       <option value="6">--Select a band--</option>
                     @foreach($bands as $band)
-                        <option value="{{$band->id}}">{{$band->name}}</option>
+                        <option value="<?php echo $band->id;?>">{{$band->name}}</option>
                     @endforeach
-                </select>
+                </select><br>
+                or Add new band: <input type="text" name="band" placeholder="Add only if not listed above" class="form-control"><br>
+                
 				<label>Upload Mp3:</label>
 				
 				<input id="input-id" type="file" accept=".mp3" name="file" class="form-control"><br>
@@ -103,12 +114,28 @@ $("#add").validate({
             required:true,
 
             },
-     
+         band:{
+                    remote:
+                      {
+                            url: "{{url('/rate/checkBand')}}",
+                            type: "post",
+                            data: {
+                                "_token": "{{ csrf_token() }}",
+                            },
+                      },
+                  },
            file: { 
                 required: false,
                 extension: "mp3|mp3g|mp4"
         }, 
     },
+
+     messages:
+        {
+            song:{required:'Song is required.'},
+            band:{remote:'Band already in use. Select from the dropdown list.'},
+        },
+
     });
 
 $(document).on('submit', '#add', function (e) 
@@ -167,7 +194,7 @@ $("#input-id").on('fileuploaded', function(event, data, previewId, index) {
     var form = data.form, files = data.files, extra = data.extra,
         response = data.response, reader = data.reader;
     console.log(response);
-    $('#getfileename').val(response);
+    $('#getfilename').val(response);
 });
 
 </script>

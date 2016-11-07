@@ -43,16 +43,50 @@ class RateController extends Controller
     {
        if($request->Ajax())
        {
-        print_r($request->selectBand);die;
-           $newSong = new Song();
-           $newSong->name=$request->song;
-           $newSong->band=$request->band;
-           $newSong->link=$request->link;
-           $newSong->mp3=$request->uploadedfile;
-           $newSong->save();
+            if(!$request->all())
+            {
+                echo json_encode(FALSE); die;
+            }
+            else
+            {
+                $newSong = new Song();
+                $newSong->name=$request->song;
 
+                if($request->band)
+                {
+                    $newBand= new Band();
+                    $newBand->name=$request->band;
+                    $newBand->save();
+                    $newSong->band_id=$newBand->id;
+                }
+                else
+                {
+                    $newSong->band_id=$request->selectBand;
+                }
 
-            echo json_encode(TRUE);
+                $newSong->link=$request->link;
+                $newSong->mp3=$request->uploadedfile;
+                if($newSong->save())
+                {
+                    echo json_encode(TRUE); die;
+                }
+            }
+
+            echo json_encode(FALSE); die;
         }
+    }
+
+    public function checkBand(Request $request)
+    {
+        if($request->ajax())
+        {
+            $check=Band::where(['name'=>$_POST['band']])->first();
+            if(!$check)
+            {
+                echo json_encode(TRUE);die;
+            }
+
+            echo json_encode(FALSE);die;
+        }   
     }
 }
