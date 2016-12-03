@@ -34,5 +34,11 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+ 
+    'facebook' => [
+        'client_id' => '690925494396768',
+        'client_secret' => 'c6ae39d6daa459d65654ed4ff9a68a32',
+        'redirect' => 'http://localhost/lara5.3/rate/callback',
+        ],
 
 ];

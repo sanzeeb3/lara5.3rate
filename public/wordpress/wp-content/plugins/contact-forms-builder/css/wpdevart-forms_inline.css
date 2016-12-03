@@ -1,0 +1,28 @@
+/*
+  wpdevart FORMS CSS FOR FRONTEND INLINE
+*/
+.wpdevart-forms .wpdevart-input-field label,
+.wpdevart-forms .wpdevart-textarea label,
+.wpdevart-forms .wpdevart-sub-fields > label{
+  width:22%;min-width:120px;
+  display:inline-block;
+}
+.wpdevart-forms input[type="number"],
+.wpdevart-forms input[type="date"],
+.wpdevart-forms .input-date input,
+.wpdevart-forms .field-captcha .input-field-inner input {width:auto;min-width:50%;}
+.wpdevart-forms textarea {
+  width:72% !important;
+  display:inline-block !important;
+  padding:1%;
+}
+.wpdevart-forms .input-field-inner,
+.wpdevart-forms .wpdevart-sub-fields-inner{
+  display:inline-block !important;
+  width:72% !important;
+}
+@media screen and (max-width: 520px){
+  .wpdevart-forms .input-field-inner,
+  .wpdevart-forms .wpdevart-sub-fields-inner {width: 100% !important;}
+  .wpdevart-forms input[type="submit"], .wpdevart-forms button[type="submit"] {margin-left: 0;}
+}

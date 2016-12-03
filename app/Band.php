@@ -11,7 +11,7 @@ class Band extends model
     protected $table = 'bands';
     protected $fillable = ['name','views'];
 
- 	public function band()
+ 	public function songs()
     {
         return $this->hasMany('App\Song'); 
     }

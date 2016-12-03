@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Band;
 use App\Song;
+use App\Test;
+use App\Post;
+use App\User;
+use Corcel;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
@@ -11,15 +15,16 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Cookie;
 use Socialite;
-
+use DB;
 
 class RateController extends Controller
 {
     public function index()
-	{
-		$bands=Band::all();
-		$songs=Song::with('band')->get();
+	{   
+		$bands=Band::where('id','<>',6)->get();
+		$songs=Song::with('band')->orderBy('views','desc')->get();
 		return view('rate.index')->with(['bands'=>$bands,'songs'=>$songs]);
 	}
 
@@ -39,10 +44,35 @@ class RateController extends Controller
         }
     }
 
+    public function login()
+    { 
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function logout()
+    { 
+        Auth::logout();
+        return redirect('/')->with('message','logged out!');
+    }
+
+    public function callback()
+    {
+        $user = Socialite::driver('facebook')->user(); 
+        $newUser=User::firstOrCreate(['email' => $user->email], ['name' => $user->name],['remember_token'=>$user->token]);
+
+        Auth::login($newUser, true);
+        return redirect('/');
+        
+    }
+
     public function add(Request $request)
     {
+        if(!Auth::check())
+        {
+            echo json_encode("notloggedin");die;
+        }
        if($request->Ajax())
-       {
+       { 
             if(!$request->all())
             {
                 echo json_encode(FALSE); die;
@@ -51,6 +81,7 @@ class RateController extends Controller
             {
                 $newSong = new Song();
                 $newSong->name=$request->song;
+                $newSong->added_by=Auth::user()->name;
 
                 if($request->band)
                 {
@@ -89,4 +120,14 @@ class RateController extends Controller
             echo json_encode(FALSE);die;
         }   
     }
+
+    public function rate(Request $request)
+    {
+       if($request->id && $request->rate)
+        {
+            DB::table('songs')->where('id',$request->id)->increment('views',$request->rate);
+            return redirect('/');
+        }
+    }
+
 }

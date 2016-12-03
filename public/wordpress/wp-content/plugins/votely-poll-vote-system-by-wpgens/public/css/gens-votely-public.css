@@ -1,0 +1,203 @@
+@font-face {
+  font-family: 'gens_votely_fontello';
+  src: url('../font/fontello.eot?36414904');
+  src: url('../font/fontello.eot?36414904#iefix') format('embedded-opentype'),
+     url('../font/fontello.woff?36414904') format('woff'),
+     url('../font/fontello.ttf?36414904') format('truetype'),
+     url('../font/fontello.svg?36414904#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="votelyicon-"]:before, [class*=" votelyicon-"]:before {
+  font-family: "gens_votely_fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.votelyicon-facebook:before { content: '\e800'; } /* '' */
+.votelyicon-linkedin:before { content: '\e801'; } /* '' */
+.votelyicon-whatsapp:before { content: '\e802'; } /* '' */
+.votelyicon-twitter:before { content: '\e803'; } /* '' */
+.votelyicon-gplus:before { content: '\e804'; } /* '' */
+.votelyicon-email:before { content: '\e806'; } /* '' */
+.votelyicon-pinterest:before { content: '\e80c'; } /* '' */
+.votelyicon-share:before { content: '\e80d'; } /* '' */
+
+.gens_votely {
+  margin: 35px 0;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background-color: #f7f7f7;
+}
+.gens_votely .gens_outer {
+  display: table-cell;
+  vertical-align: middle;
+}
+.gens_votely h3 {
+  margin: 0!important;
+  padding: 0!important;
+  font-size: 24px!important;
+  line-height: 32px!important;
+  color: #222!important;
+}
+.gens_votely .gens_info {
+  overflow: hidden;
+}
+.gens_votely .gens_title {
+  float: left;
+  padding:0px 10px!important;
+  margin: 0!important;
+  font-size: 14px;
+  background-color: #34495e;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 28px;
+}
+.gens_votely .gens_thanks {
+  display: none;
+  font-size: 16px;
+}
+.gens_votely .gens_thanks.voted {
+  display: block;
+}
+.gens_votely .gens_votely_share_icon {
+  margin: 0!important;
+  padding: 0!important;
+}
+.gens_votely .gens_votely_share_icon li {
+  margin: 0!important;
+  list-style:none!important;
+  float: left!important;
+  vertical-align: middle!important;
+  background-color: #34495e;
+  border-left: 1px solid #fff;
+}
+.gens_votely .gens_votely_share_icon li a {
+  color: #fff!important;
+  width: 29px;
+  height: 28px;
+  text-align: center;
+  display: block;
+  padding:3px 8px!important;
+  color: #fff!important;
+  font-size: 16px!important;
+  line-height: 21px!important;
+}
+.gens_votely .gens_votely_share_icon li:hover {
+  opacity: 0.85;
+}
+.gens_votely .gens_votely_share_icon li {
+  display: none;
+}
+.gens_votely .gens_votely_share_icon li:first-child {
+  display: block;
+}
+.gens_votely .gens_votely_share_icon:hover li {
+  display: block;
+}
+.votelyicon-share {
+  margin-left: -2px;
+}
+.gens_votely .gens_question,
+.gens_votely .gens_answers {
+  padding:25px 0;
+  width: 50%;
+  float: left;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+.gens_votely .gens_question {
+  padding-left: 25px;
+  display: table;
+  height: 150px;
+}
+.gens_answers {
+  text-align: center;
+}
+.gens_answers > div {
+  position: relative;
+  min-width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 0 10px;
+  margin: 0 2px;
+  display: inline-block;
+  background-color: #8e44ad;
+  z-index: 9;
+  overflow: hidden;
+  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 2px -2px rgba(0, 0, 0, 0.2)
+}
+.gens_answers.gens_square > div {
+  min-width: 80px;
+  border-radius: 0;
+}
+.gens_answers a {
+  display: block;
+  outline: none!important;
+  border:none!important;
+  box-shadow: none!important;
+}
+.gens_answers a:hover {
+  text-decoration: none;
+}
+.gens_answers div:last-child {
+  background-color: #27B4B7;
+}
+.gens_answers a span {
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 90px;
+  font-weight: bold;
+  position: relative;
+}
+.gens_answers a span:last-child {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+  display: block;
+  text-align: center;
+}
+.gens_answers .gens_overlay {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100px;
+  background-color: rgba(0,0,0,0.35);
+  display: inline-block;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -0-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.gens_answers div:hover .gens_overlay {
+  top: 0!important;
+  background-color: rgba(0,0,0,0.60);
+}
+
+/* Medium screens (640px) */
+@media (max-width: 668px) {
+  .gens_votely .gens_question {
+    text-align: center;
+  }
+  .gens_votely .gens_question, .gens_votely .gens_answers {
+    width: 100%;
+    padding: 25px;
+    float: none;
+  }
+}

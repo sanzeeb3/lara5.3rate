@@ -1,0 +1,357 @@
+/* 
+	wpdevart FORMS DEFAULT SKIN
+*/
+
+.wpdevart-forms.default-skin {
+	padding:0px;
+}
+
+.wpdevart-forms.default-skin input[type="text"],
+.wpdevart-forms.default-skin select,
+.wpdevart-forms.default-skin input[type="password"],
+.wpdevart-forms.default-skin input[type="email"],
+.wpdevart-forms.default-skin input[type="number"],
+.wpdevart-forms.default-skin input[type="url"],
+.wpdevart-forms.default-skin input[type="tel"],
+.wpdevart-forms.default-skin input[type="date"]{
+	background-color: rgba(255,255,255,0.6) !important;
+	border-color: rgba(150,150,150,0.4);
+	border-width: 1px;
+	-moz-border-radius: 0%;
+	-webkit-border-radius: 0%/2%;
+	border-radius: 0%/2%;
+	border-style: solid;
+	height:34px;
+	color:inherit;
+	width:100%;
+	box-shadow:none;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	padding:0% 1%;
+}
+.wpdevart-forms.default-skin textarea{
+	max-width:100%;
+    color:inherit;
+}
+.wpdevart-forms.default-skin input[type="number"],
+.wpdevart-forms.default-skin input[type="date"],
+.wpdevart-forms.default-skin .input-date input{
+	padding:0% 0% 0% 1%;
+}
+.wpdevart-forms.default-skin input[type="number"],
+.wpdevart-forms.default-skin input[type="date"],
+.wpdevart-forms.default-skin .input-date input,
+.wpdevart-forms.default-skin .field-captcha .input-field-inner input{
+	width:auto;
+	min-width:50%;
+}
+.wpdevart-forms.default-skin .input-file > label{
+	min-width:120px;
+	width:22%;
+	display:inline-block;
+	vertical-align:top;
+	padding-right:5px;
+}
+.wpdevart-forms.default-skin .input-field-inner.input-file{
+    display: inline-block;
+    width: 72%;
+}
+.wpdevart-forms.default-skin textarea{
+	background-color: rgba(255,255,255,0.6) !important;
+	border-color: rgba(150,150,150,0.4);
+	border-width: 1px;
+	-moz-border-radius: 0%;
+	-webkit-border-radius: 0%/2%;
+	border-radius: 0%/2%;
+	border-style: solid;
+	color:#444 !important;
+	width:100%;
+	min-height:120px;
+	padding:1% 1%;
+}
+.wpdevart-forms.default-skin select:focus,
+.wpdevart-forms.default-skin input[type="text"]:focus,
+.wpdevart-forms.default-skin input[type="password"]:focus,
+.wpdevart-forms.default-skin input[type="email"]:focus,
+.wpdevart-forms.default-skin input[type="number"]:focus,
+.wpdevart-forms.default-skin input[type="url"]:focus,
+.wpdevart-forms.default-skin input[type="tel"]:focus,
+.wpdevart-forms.default-skin input[type="date"]:focus,
+.wpdevart-forms.default-skin textarea:focus{
+	-moz-box-shadow:  0px 0px 2px 1px rgba(150,150,150,0.3) !important;
+	-webkit-box-shadow: 0px 0px 2px 1px rgba(150,150,150,0.3) !important;
+	box-shadow:0px 0px 2px 1px rgba(150,150,150,0.3)!important;
+	border-color: rgba(150,150,150,0.5) !important;
+	outline:none;
+}
+.wpdevart-forms.default-skin .bootstrap-select{
+	width:100% !important;
+}
+.wpdevart-forms.default-skin  .btn.selectpicker{
+	background-color: rgba(255,255,255,0.8) !important;
+	border-color: rgba(150,150,150,0.4);
+	border-width: 1px;
+	-moz-border-radius: 0%;
+	-webkit-border-radius: 0%/2%;
+	border-radius: 0%/2%;
+	border-style: solid;
+	height:34px;
+	width:97.6%;
+	color:#444 !important;
+	padding:0.5% 1%;
+	outline:none !important;
+}
+.wpdevart-forms.default-skin select:focus,
+.wpdevart-forms.default-skin .bootstrap-select .btn:focus,
+.wpdevart-forms.default-skin .bootstrap-select.open .btn.selectpicker{
+	-moz-box-shadow:  0px 0px 2px 1px rgba(150,150,150,0.3) !important;
+	-webkit-box-shadow: 0px 0px 2px 1px rgba(150,150,150,0.3) !important;
+	box-shadow:0px 0px 2px 1px rgba(150,150,150,0.3) !important;
+	border-color: rgba(150,150,150,0.5) !important;
+	outline:none !important;
+}
+.wpdevart-forms.default-skin .bootstrap-select.btn-group .dropdown-menu{
+	border-radius:0px;
+}
+.wpdevart-forms.default-skin .bootstrap-select.btn-group .dropdown-menu  li a{
+	margin-left:0px;
+}
+.wpdevart-forms.default-skin .bootstrap-select.btn-group .dropdown-menu  li.seleted a,
+.wpdevart-forms.default-skin .bootstrap-select.btn-group .dropdown-menu  li.seleted,
+.wpdevart-forms.default-skin .bootstrap-select.btn-group .dropdown-menu  li:focus,
+.wpdevart-forms.default-skin .bootstrap-select.btn-group .dropdown-menu  li:focus a{
+	outline:none !important;
+	border:none;
+}
+.wpdevart-forms.default-skin input[type="checkbox"] {
+	display: none;
+}
+.wpdevart-forms.default-skin [type="submit"],
+.wpdevart-forms.default-skin [type="reset"],
+.wpdevart-forms.default-skin [type="button"]{
+	background:transparent;
+	margin-right:5px;
+	border:1px solid #ccc;
+	padding:12px 18px;
+	font-size:16px;
+	font-weight:600;
+	border-radius:0px;
+	color:#333 !important;
+}
+.wpdevart-forms.default-skin [type="submit"]:hover,
+.wpdevart-forms.default-skin [type="submit"]:focus,
+.wpdevart-forms.default-skin input[type="reset"]:hover,
+.wpdevart-forms.default-skin input[type="button"]:hover,
+.wpdevart-forms.default-skin button:hover,
+.wpdevart-forms.default-skin button:focus{
+	-moz-box-shadow:  0px 0px 2px 1px rgba(150,150,150,0.3);
+	-webkit-box-shadow: 0px 0px 2px 1px rgba(150,150,150,0.3);
+	box-shadow:0px 0px 2px 1px rgba(150,150,150,0.3);
+	border-color: rgba(150,150,150,0.5);
+	outline:none !important;
+}
+.wpdevart-forms.default-skin input[type="checkbox"] + label span {
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	width:18px;
+	height:17px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	font-size:12px;
+	margin-bottom:0px;
+	top:3px;
+}
+.wpdevart-forms.default-skin .input-number .input-group{
+	width:100%;
+}
+.wpdevart-forms.default-skin .input-number .input-group .bfh-number-btn{
+	padding:2px 10px;
+	display:block;
+	position:absolute;
+	right:0px;
+	border-radius:0px;
+	border:none;
+}
+.wpdevart-forms.default-skin .input-number .input-group .bfh-number-btn.inc{
+	top:0px;
+}
+.wpdevart-forms.default-skin .input-number .input-group .bfh-number-btn.dec{
+	bottom:0px;
+}
+.wpdevart-forms.default-skin .input-number .input-group .bfh-number-btn{
+	cursor:pointer;
+	z-index:2;
+}
+.wpdevart-forms.default-skin .input-number .input-group .bfh-number-btn .glyphicon-chevron-up:before{
+	content:'\f106';
+	font-family:"FontAwesome";
+	font-size: 14px;
+	color: #99a1a7 !important;
+	right:4px;
+	position:relative;
+}
+.wpdevart-forms.default-skin .input-number .input-group .bfh-number-btn .glyphicon-chevron-down:before{
+	content:'\f107';
+	font-family:"FontAwesome";
+	font-size: 14px;
+	color: #99a1a7 !important;
+	right:4px;
+	position:relative;
+}
+.wpdevart-forms.default-skin .input-number .input-group .bfh-number-btn .glyphicon{
+	position:relative;
+}
+.wpdevart-forms.default-skin input[type="checkbox"]:checked + label span:after {
+	content: '\f00c';
+	font-family:"FontAwesome";
+	font-size: 14px;
+	position: absolute;
+	top: -2px;
+	left: 1px;
+	color: #99a1a7 !important; 
+}
+.wpdevart-forms.default-skin input[type="radio"] {
+	display: none;
+}
+.wpdevart-forms.default-skin input[type="radio"] + label span{
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	width:16px;
+	height:16px;
+	padding:1px;
+	border-radius:50%;
+	display: inline-block;
+	position: relative;
+	font-size:12px;
+	margin-bottom:0px;
+	top:3px;
+}
+.wpdevart-forms.default-skin input[type="radio"]:checked + label span:after {
+	content: ' ';
+	padding:5px;
+	border-radius: 50px;
+	position: absolute;
+	top: 2px;
+	background: #99a1a7;
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+	text-shadow: 0px;
+	left: 2px;
+	font-size: 32px;
+}
+.wpdevart-forms.default-skin input[type="radio"]:checked + label span{
+	background-color: #e9ecee;
+	color: #99a1a7 !important;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1), inset 0px 0px 10px rgba(0,0,0,0.1);
+}
+.wpdevart-forms.default-skin input[type="radio"] + label:active span, 
+.wpdevart-forms.default-skin input[type="radio"]:checked + label:active span {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.wpdevart-forms.default-skin input[type="checkbox"] + label ,
+.wpdevart-forms.default-skin input[type="radio"] + label {
+	margin-right:18px;
+	font-size:16px;
+	color:#777 !important;
+	display:inline-block;
+	font-weight:400;
+}
+.wpdevart-forms.default-skin input[type="checkbox"] + label:focus, 
+.wpdevart-forms.default-skin input[type="radio"] + label:focus,
+.wpdevart-forms.default-skin input[type="color"]:focus{
+	outline:none;
+	box-shadow:none;
+}
+.wpdevart-forms.default-skin input[readonly]{
+	cursor:text;
+}
+.wpdevart-forms.default-skin input[type="file"]{
+	opacity:0;
+	width:85px;
+	position:relative;
+	height:42px;
+	z-index:2;
+	cursor:pointer;
+}
+.wpdevart-forms.default-skin .file-upload-btn{
+	position:absolute;
+	background:transparent;
+	border:1px solid #ccc;
+	border-radius:0px;
+	padding:5px 15px;
+	font-size:18px;
+	z-index:1;
+	cursor:pointer;
+}
+.wpdevart-forms.default-skin .file-upload-btn span {
+	cursor:pointer;
+}
+.wpdevart-forms.default-skin .file-upload-btn+span{
+	  position: absolute;
+	  margin-left: 100px;
+}
+.tooltip-inner{
+    background-color:rgba(0,0,0,0.7); 
+	border-radius:2px;
+}
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: rgba(0,0,0,0.7);
+}
+.tooltip.left .tooltip-arrow {
+  border-left-color: rgba(0,0,0,0.7);
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color: rgba(0,0,0,0.7);
+}
+.tooltip.right .tooltip-arrow {
+	border-right-color: rgba(0,0,0,0.7); 
+}
+.wpdevart-forms.default-skin .selectpicker.dropdown-toggle:after{
+	display:none !important;
+}
+
+/*frontend success-failure messages on form submission*/
+.failure_message.reply_msg{
+	background-color: #c9302c;
+  	color: white;
+    padding: 10px;
+  	text-align: left;
+}
+.failure_message.reply_msg h1{
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+}
+.success_message.reply_msg{
+	background-color: #33CC33;
+  	color: white;
+    padding: 10px;
+  	text-align: center;
+}
+.selectpicker li a:focus{
+	outline:none;
+	box-shadow:none;
+	-webkit-box-shadow:none;
+}
+.wpdevart-forms.default-skin ::-webkit-input-placeholder { 
+    color:#aaa !important;
+	opacity:1;
+}
+.wpdevart-forms.default-skin :-moz-placeholder { 
+    color:    #aaa !important;
+	line-height:-moz-block-height;
+	opacity:1;
+}
+.wpdevart-forms.default-skin ::-moz-placeholder { 
+    color:    #aaa !important;
+	line-height:-moz-block-height;
+	opacity:1;
+}
+.wpdevart-forms.default-skin :-ms-input-placeholder { 
+    color:    #aaa !important;
+	opacity:1;
+}

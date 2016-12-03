@@ -1,3 +1,19 @@
+
+<div class="container-fluid" style="background-color:#F44336;color:#fff;height:140px;">
+  <h1>Rate Your Favourite</h1>
+  <h3>Rate and Share your favourite songs here. See videos, download mp3 and many more...<br>No login !! NO Registration!!</h3> 
+</div>
+
+<nav class="navbar navbar-inverse">
+      <ul class="nav navbar-nav">
+      
+        <li class=""><a href="" class="glyphicon glyphicon-triangle-left" onclick="history.go(-1);">Back</button></a></li>
+        <li class="active"><a href="{{url('/')}}"><span class="glyphicon glyphicon-home home"></span> Home</a></li>
+           
+       
+    </ul>
+</nav>
+
 @extends('main')
 @section('content')    
 <div class="container">
@@ -12,7 +28,7 @@
      				@foreach($bands as $band)
      				<tr>	
      					<td class="bg-info">
-							{{$band->name}}
+							<div class="search"><a href="{{asset('rate/rateBand')}}" data-id="<?php echo $band->id;?>">{{$band->name}}</a></div>
      					</td>
      				
      					<td class="bg-info">
@@ -24,11 +40,11 @@
    			</table>
 		</div>
 	
-		<div class="col-sm-6">
+		<div class="col-sm-7">
 			<label>All Songs:</label>
 			<table id="featured" class="table table-bordered">
    			<thead>
-				<tr><td>S.N.</td><td>Song</td><td>Band</td><td>Rating</td><td>Options</td></tr>
+				<tr><td>S.N.</td><td>Song</td><td>Band</td><td>Total Votes</td><td>Options</td></tr>
 			</thead>
 			<tbody>
 			
@@ -58,6 +74,9 @@
 						<h3><b>{{$song->views}}</b></h3>
 					</td>
 					<td>
+                    Add Votes.
+                        <form action="{{url('/rate/rate')}}" id="rate" method="POST">
+                        {!!csrf_field()!!}
 						<select name="rate" class="form-control">
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -65,7 +84,11 @@
 							<option value="4">4</option>
 							<option value="5">5</option>
 						</select>
-						<input type="submit" class="form-control" value="Rate"> 
+                        <input type="hidden" name="id" value="<?php echo $song->id;?>">
+					
+                        <input type="submit" class="form-control" value="Vote"> 
+                        </form>
+
 					</td>
 				</tr>
 			@endforeach
@@ -74,9 +97,22 @@
 			</table>
 
 		</div>
-		<div class="col-sm-4">
-		<h2>Add new song:</h2>
-			<form id="add" method="POST" action="{{url('/rate/add')}}" enctype="multipart/form-data">
+		<div class="col-sm-3">
+        @if(!Auth::check())
+            <a href="{{route('login')}}">Login with facebook</a>     
+        
+        @else (Auth::check())
+            <div class="alert alert-info">Logged in as <?php echo Auth::user()->name;?></div>
+            <img src="<?php echo Auth::user()->avatar;?>">
+            <a href="{{route('logout')}}">Logout</a>
+        @endif
+        
+        
+
+        <h2>Add new song:</h2>
+		<p style="color:red"><i>Note*: You must login to add new song.</i></p>
+        
+        	<form id="add" method="POST" action="{{url('/rate/add')}}" enctype="multipart/form-data">
 		    {!! csrf_field() !!}
 			    <label>Song: <b style="color:red">*</b></label>
 				<input type="text" name="song" class="form-control"><br>
@@ -105,7 +141,15 @@
 
 <script>
 
-$('#featured').DataTable();
+var table=$('#featured').DataTable();
+
+$(document).on('click','.search',function(e)
+{
+        e.preventDefault();
+        var search = $(this).val();
+        table.search(search).draw();
+      
+});   
    
 $("#add").validate({
 
@@ -163,7 +207,12 @@ $(document).on('submit', '#add', function (e)
 					});
                 }
 
+                else if(res == "notloggedin")
+                {
+                    alert('Login First!')
+                }
                 else
+
                 {
                     swal("Opps!", "Something went wrong!. Try again", "error");
                 }

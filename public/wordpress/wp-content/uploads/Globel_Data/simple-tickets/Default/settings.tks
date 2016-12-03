@@ -1,0 +1,6 @@
+HEAD,ID,TYPE,FIELD NAME,ENABLED,REQUIRED,HIDDEN,DISPLAY IN LIST,PLACEHOLDER,,,,,,,,,,,,,
+TKS,1,text,subject,1,1,0,1,Ticket Subject,,,,,,,,,,,,,
+TKS,2,email,e-mail,1,1,0,1,example@example.com,,,,,,,,,,,,,
+TKS,3,select,status,1,0,0,1,,,,,,,,,,,,,,Open,Pending,Closed,
+TKS,4,select,priority,1,0,0,1,,,,,,,,,,,,,,Low,Medium,High,
+TKS,5,select,type,1,1,0,1,,,,,,,,,,,,,,Problem,Question,

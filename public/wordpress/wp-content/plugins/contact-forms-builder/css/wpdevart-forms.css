@@ -1,0 +1,436 @@
+/*
+  wpdevart FORMS CSS FOR FRONTEND
+*/
+.wpdevart-forms {
+  background: transparent;
+  width: 100%;
+  padding: 4% 0;
+  position: relative;
+}
+.wpdevart-input-field label,
+.wpdevart-textarea label,
+.wpdevart-sub-fields > label {
+  display: block;
+}
+.wpdevart-input-field,
+.wpdevart-textarea,
+.wpdevart-sub-fields {
+  margin-bottom: 15px;
+  vertical-align: top;
+}
+.input-field-inner,
+.wpdevart-sub-fields-inner,
+.wpdevart-forms textarea {
+  margin-top: 5px;
+}
+.wpdevart-forms .wpdevart-select,
+.wpdevart-forms select,
+.wpdevart-forms textarea,
+.wpdevart-forms input[type]:not([type="search"]):not([type="reset"]):not([type="file"]) {
+  border:1px solid rgba(150, 150, 150, 0.4);
+  -moz-border-radius: 0%;
+  -webkit-border-radius: 0%/2%;
+  border-radius: 0%/2%;
+  height: 34px;
+  width: 100%;
+  padding: 0% 1%;
+}
+.wpdevart-forms select {
+  width: 120%;
+  height: 32px;
+}
+.wpdevart-forms .wpdevart-select {
+  padding: 0 .001em;
+  border-color: transparent;
+}
+.wpdevart-forms textarea {
+  max-width: 100%;
+}
+.wpdevart-forms textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(150, 150, 150, 0.4);
+  border-width: 1px;
+  -moz-border-radius: 0%;
+  -webkit-border-radius: 0%/2%;
+  border-radius: 0%/2%;
+  border-style: solid;
+  width: 100%;
+  min-height: 120px;
+  padding: 1% 1%;
+}
+.wpdevart-forms select:focus,
+.wpdevart-forms textarea:focus,
+.wpdevart-forms input[type]:focus {
+  -moz-box-shadow: 0px 0px 2px 1px rgba(150, 150, 150, 0.3);
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(150, 150, 150, 0.3);
+  box-shadow: 0px 0px 2px 1px rgba(150, 150, 150, 0.3);
+  border-color: rgba(150, 150, 150, 0.5);
+  outline: none;
+}
+.wpdevart-forms .input-file > label{
+  width:22%;
+  min-width:120px;
+  margin-top:5px;
+  padding-right:5px;
+  display:inline-block;
+  vertical-align: middle;
+}
+.wpdevart-forms .input-field-inner.input-file{
+  width: 72%;
+  display: inline-block;
+}
+.form-loader {
+  /*top: 10px;*/
+  position: relative;
+}
+.wpdevart-forms input[type="radio"],
+.wpdevart-forms input[type="checkbox"]{
+  display: none;
+}
+.wpdevart-forms input[type="radio"] + label span,
+.wpdevart-forms input[type="checkbox"] + label span {
+  top: 2px;
+  margin-bottom: 0px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+}
+.wpdevart-forms input[type="radio"] + label span {
+  width: 16px;
+  height: 16px;
+  padding: 1px;
+  border-radius: 50%;
+}
+.wpdevart-forms input[type="checkbox"] + label span {
+  width: 18px;
+  height: 17px;
+  border-radius: 3px;
+}
+.wpdevart-forms input[type="checkbox"]:checked + label span:after {
+  content: '\f00c';
+  font-family: "FontAwesome";
+  font-size: 14px;
+  position: absolute;
+  top: -3px;
+  left: 1px;
+  color: #222;
+}
+.wpdevart-forms input[type="radio"] + label,
+.wpdevart-forms input[type="checkbox"] + label {
+  width: auto;
+  padding: 0px;
+}
+.wpdevart-forms input[type="radio"]:checked + label span:after {
+  content: ' ';
+  padding: 5px;
+  border-radius: 50px;
+  position: absolute;
+  top: 2px;
+  background: #222;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0px;
+  left: 2px;
+}
+.wpdevart-forms input[type="radio"]:checked + label span {
+  border: 1px solid #adb8c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1), inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.wpdevart-forms input[type="radio"] + label:active span,
+.wpdevart-forms input[type="radio"]:checked + label:active span {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.wpdevart-forms input[type="checkbox"] + label,
+.wpdevart-forms input[type="radio"] + label {
+  margin-right: 18px;
+  display: inline-block;
+  opacity: .8;
+}
+.wpdevart-forms input[type="checkbox"] + label:focus,
+.wpdevart-forms input[type="radio"] + label:focus {
+  outline: none;
+  box-shadow: none;
+}
+.wpdevart-forms input[readonly] {
+  cursor: text;
+}
+.wpdevart-forms input[type="file"] {
+  opacity: 0;
+  width: 85px;
+  height: auto;
+  padding: 0;
+  z-index: 2;
+  cursor: pointer;
+  position: relative;
+}
+.wpdevart-forms .file-upload-btn {
+  position: absolute;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px 15px;
+  z-index: 1;
+  cursor: pointer;
+}
+.wpdevart-forms .file-upload-btn span {
+  cursor: pointer;
+}
+.wpdevart-forms .file-upload-btn+span {
+  position: absolute;
+  margin-left: 115px;
+  padding-top: 8px;
+}
+.tooltip-inner {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 2px;
+}
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: rgba(0, 0, 0, 0.7);
+}
+.tooltip.left .tooltip-arrow {
+  border-left-color: rgba(0, 0, 0, 0.7);
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color: rgba(0, 0, 0, 0.7);
+}
+.tooltip.right .tooltip-arrow {
+  border-right-color: rgba(0, 0, 0, 0.7);
+}
+.wpdevart-forms .selectpicker.dropdown-toggle:after {
+  display: none !important;
+}
+
+/* Frontend success-failure messages on form submission */
+.reply_msg {
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+.failure_message {
+  background-color: #cc2e2e;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+.failure_message h3 {
+  padding-bottom: 10px;
+  margin: 0;
+  font-size: 20px;
+}
+.success_message {
+  background-color: #2a8c3a;
+}
+.selectpicker li a:focus {
+  outline: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.wpdevart-select select {
+  padding-left: 10px !important;
+  opacity: .9;
+  border: none;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none;
+}
+@-moz-keyframes throbber-loader {
+  0%  {background: rgba(0, 0, 0, 0.2);}
+  10% {background: rgba(0, 0, 0, 0.5);}
+  40% {background: rgba(0, 0, 0, 0.9);}
+}
+@-webkit-keyframes throbber-loader {
+  0%  {background: rgba(0, 0, 0, 0.2);}
+  10% {background: rgba(0, 0, 0, 0.5);}
+  40% {background: rgba(0, 0, 0, 0.9);}
+}
+@keyframes throbber-loader {
+  0%  {background: rgba(0, 0, 0, 0.2);}
+  10% {background: rgba(0, 0, 0, 0.5);}
+  40% {background: rgba(0, 0, 0, 0.9);}
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.throbber-loader:not(:required) {
+  -moz-animation: throbber-loader 2000ms 300ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 300ms infinite ease-out;
+  animation: throbber-loader 2000ms 300ms infinite ease-out;
+  background: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  position: relative;
+  border: 1px solid #fff;
+  text-indent: -9999px;
+  width: 1.02em;
+  height: 1.6em;
+  margin: 0 1.6em;
+}
+.throbber-loader:not(:required):before,
+.throbber-loader:not(:required):after {
+  background: rgba(0, 0, 0, 0.1);
+  content: '\x200B';
+  display: inline-block;
+  width: 0.9em;
+  height: 1.5em;
+  position: absolute;
+  top: -0.5;
+  border: 1px solid #fff;
+}
+.throbber-loader:not(:required):before {
+  -moz-animation: throbber-loader 2000ms 150ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 150ms infinite ease-out;
+  animation: throbber-loader 2000ms 150ms infinite ease-out;
+  left: -1.6em;
+  border: 1px solid #fff;
+}
+.throbber-loader:not(:required):after {
+  -moz-animation: throbber-loader 2000ms 450ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 450ms infinite ease-out;
+  animation: throbber-loader 2000ms 450ms infinite ease-out;
+  right: -1.6em;
+  border: 1px solid #fff;
+}
+.input-text {
+  border: none !important;
+  padding: 0px !important;
+  margin-top: 5px !important;
+}
+input,
+.wpdevart-input-field {
+  line-height: normal;
+}
+.input-text, input[type="text"] {
+  margin-right: 0px;
+}
+.input-field-inner {
+  border: none !important;
+  background: none !important;
+  padding: 0px !important;
+}
+.wpdevart-forms button,
+.wpdevart-forms input[type="reset"],
+.wpdevart-forms input[type="button"],
+.wpdevart-forms input[type="submit"]{
+  color: #FFF;
+  font-size: inherit;
+  font-family: inherit;
+  text-transform: inherit;
+  padding: 8px 15px;
+  opacity: .7;
+  background: #333;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+.wpdevart-forms input[type="submit"],
+.wpdevart-forms button[type="submit"] {
+  opacity: 1.0;
+}
+.wpdevart-forms button:hover,
+.wpdevart-forms button:focus,
+.wpdevart-forms input[type="reset"]:hover,
+.wpdevart-forms input[type="reset"]:focus,
+.wpdevart-forms input[type="submit"]:hover,
+.wpdevart-forms input[type="submit"]:focus {
+  opacity:.4;
+  outline: none;
+}
+/* custom heading/title */
+h3.wf-custom-heading {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* separator style */
+div.separtor-with-title {
+  line-height: 16px;
+  text-align: left;
+   position: relative;
+  overflow: hidden;
+  text-align: left;
+  padding:10px 0 15px;
+}
+
+
+h3.separator-title {
+  display: inline;
+  background: inherit;
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  position: relative;
+  margin:0;
+}
+/*div.separtor-with-title */h3.separator-title:before,
+/*div.separtor-with-title */h3.separator-title:after {
+  content: '';
+  display: block;
+  width: 1000px;
+  position: absolute;
+  /*top: 0.73em;*/
+  top: 50%;
+  opacity: 0.2;
+  border-bottom:1px solid;
+}
+/*div.separtor-with-title */h3.separator-title:before {
+  right: 100%;
+}
+/*div.separtor-with-title */h3.separator-title:after {
+  left: 100%;
+}
+.separator-before-after {
+	padding-top:10px;
+}
+
+
+.wpdevart-forms select,
+.wpdevart-forms option,
+.wpdevart-forms textarea,
+.wpdevart-forms .wpdevart-select,
+.wpdevart-forms input[type="*"],
+.wpdevart-forms .file-upload-btn,
+.wpdevart-forms input[type]:not([type="search"]):not([type="reset"]):not([type="file"]) {
+  color: #000;
+  background-color: #FFF;
+  opacity: 1 !important;
+}
+
+
+
+.wpdevart-forms select,
+.wpdevart-forms .wpdevart-select {
+  background: #FFF url(../../assets/images/drop-arrow.png) right no-repeat !important;
+}
+::-webkit-input-placeholder {
+  color: #000;
+  opacity: 0.5;
+  font-family: inherit;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #000;
+  opacity: 0.5;
+  font-family: inherit;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #000;
+  opacity: 0.5;
+  font-family: inherit;
+}
+:-ms-input-placeholder {
+  color: #000;
+  opacity: 0.5;
+  font-family: inherit;
+}
+.wpdevart-forms * {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+@media screen and (max-width: 520px){
+  .wpdevart-forms .input-field-inner,
+  .wpdevart-forms .wpdevart-sub-fields-inner {100% !important}
+}

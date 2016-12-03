@@ -5,36 +5,23 @@
 <meta charset="utf-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="{{asset('jquery.min.js')}}"></script>
-<script src="{{asset('jquery.validate.min.js')}}"></script>
-<link href="{{asset('bootstrap/css/bootstrap.css')}}" rel="stylesheet">
-<script src="{{asset('bootstrap/js/bootstrap.js')}}"></script>
-<link href="{{asset('sweetalert.css')}}" rel="stylesheet">
-<script src="{{asset('sweetalert.js')}}"></script>
+<script src="{{asset('public/jquery.min.js')}}"></script>
+<script src="{{asset('public/jquery.validate.min.js')}}"></script>
+<link href="{{asset('public/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+<script src="{{asset('public/bootstrap/js/bootstrap.js')}}"></script>
+<link href="{{asset('public/sweetalert.css')}}" rel="stylesheet">
+<script src="{{asset('public/sweetalert.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
 <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
-<link href="{{asset('fileinput/fileinput.css')}}" rel="stylesheet">
-<script src="{{asset('fileinput/fileinput.js')}}"></script>
+<link href="{{asset('public/fileinput/fileinput.css')}}" rel="stylesheet">
+<script src="{{asset('public/fileinput/fileinput.js')}}"></script>
 </head>
 <style>
 
 </style>
-<body>
-<div class="container-fluid" style="background-color:#F44336;color:#fff;height:140px;">
-  <h1>Rate Your Favourite</h1>
-  <h3>Rate and Share your favourite songs here. See videos, download mp3 and many more...<br>No login !! NO Registration!!</h3> 
-</div>
 
-<nav class="navbar navbar-inverse">
-      <ul class="nav navbar-nav">
-      
-        <li class=""><a href="" class="glyphicon glyphicon-triangle-left" onclick="history.go(-1);">Back</button></a></li>
-        <li class="active"><a href="{{url('/')}}"><span class="glyphicon glyphicon-home home"></span> Home</a></li>
-           
-       
-    </ul>
-</nav>
+<body>
 
 
 @yield('content')
