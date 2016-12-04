@@ -51,6 +51,7 @@ class RateController extends Controller
 
     public function logout()
     { 
+        User::find(Auth::user()->id)->delete();
         Auth::logout();
         return redirect('/')->with('message','logged out!');
     }
@@ -58,7 +59,13 @@ class RateController extends Controller
     public function callback()
     {
         $user = Socialite::driver('facebook')->user(); 
-        $newUser=User::firstOrCreate(['email' => $user->email], ['name' => $user->name],['remember_token'=>$user->token]);
+
+        $newUser=new User();
+        $newUser->name=$user->name;
+        $newUser->email=$user->email;
+        $newUser->remember_token=$user->token;
+        $newUser->avatar=$user->avatar;
+        $newUser->save();
 
         Auth::login($newUser, true);
         return redirect('/');

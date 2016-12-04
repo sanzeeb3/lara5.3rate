@@ -18,8 +18,9 @@
 @section('content')    
 <div class="container">
 	<div class="row">
-		<div class="col-sm-2">
-        	<table class="table table-bordered">
+		<div class="col-sm-3">
+        	
+            <table class="table table-bordered">
    				<label>Most Viewed Bands:</label>
    				<thead>
      				<tr><td class="bg-primary">Band</td><td class="bg-primary">Views</td></tr>
@@ -38,10 +39,53 @@
      				@endforeach    
    				</tbody>
    			</table>
+
+            @if(!Auth::check())
+                <a href="{{route('login')}}"><img height="10%" width="100%" src="{{asset('public/images/download.png')}}"></a>     
+        
+            @else (Auth::check())
+                <div class="alert alert-info">Logged in as <?php echo Auth::user()->name;?></div>
+                <img src="<?php echo Auth::user()->avatar;?>">
+                <a href="{{route('logout')}}"><button class="btn btn-info">Logout</button></a>
+            @endif
+        
+    
+            <h2>Add new song:</h2>
+            <p style="color:red"><i>Note*: You must login to add new song.</i></p>
+        
+            <form id="add" method="POST" action="{{url('/rate/add')}}" enctype="multipart/form-data">
+            {!! csrf_field() !!}
+                <label>Song: <b style="color:red">*</b></label>
+                <input type="text" name="song" class="form-control"><br>
+                <label>Band: </b></label>
+                <select class="form-control" name="selectBand">
+                       <option value="6">--Select a band--</option>
+                    @foreach($bands as $band)
+                        <option value="<?php echo $band->id;?>">{{$band->name}}</option>
+                    @endforeach
+                </select><br>
+                or Add new band: <input type="text" name="band" placeholder="Add only if not listed above" class="form-control"><br>
+                
+                <label>Upload Mp3:</label>
+                
+                <input id="input-id" type="file" accept=".mp3" name="file" class="form-control"><br>
+                <input type="hidden" id="getfilename" name="uploadedfile" value="">   
+                <input type="hidden" id="csrf_token" name="_token" value="{{ csrf_token() }}">
+
+                <label>YouTube link:</label>
+                <input type="text" name="link" class="form-control"><br>
+                <input type="submit" class="btn btn-primary" value="Add">
+            </form>
+
 		</div>
 	
-		<div class="col-sm-7">
-			<label>All Songs:</label>
+		
+        <div class="col-sm-6">
+            <label>Most Voted Video:</label>
+            <iframe width="560" height="315" src="<?php echo str_replace('watch?v=', 'embed/', $songs[0]->link);?>" frameborder="0" allowfullscreen></iframe>
+
+            <br><br>
+			<h2><label>All Songs:</label></h2>
 			<table id="featured" class="table table-bordered">
    			<thead>
 				<tr><td>S.N.</td><td>Song</td><td>Band</td><td>Total Votes</td><td>Options</td></tr>
@@ -56,7 +100,8 @@
 					</td>
 					<td>
 						<b>{{$song->name}}</b><br>
-						<?php if($song->mp3)
+	
+     					<?php if($song->mp3)
                         {
                             ?><a href="{{asset("newuploads/{$song->mp3}")}}">Download mp3</a><br><?php
                         }
@@ -86,7 +131,7 @@
 						</select>
                         <input type="hidden" name="id" value="<?php echo $song->id;?>">
 					
-                        <input type="submit" class="form-control" value="Vote"> 
+                        <input type="submit" class="btn btn-info form-control" value="Vote"> 
                         </form>
 
 					</td>
@@ -97,47 +142,14 @@
 			</table>
 
 		</div>
+
 		<div class="col-sm-3">
-        @if(!Auth::check())
-            <a href="{{route('login')}}">Login with facebook</a>     
-        
-        @else (Auth::check())
-            <div class="alert alert-info">Logged in as <?php echo Auth::user()->name;?></div>
-            <img src="<?php echo Auth::user()->avatar;?>">
-            <a href="{{route('logout')}}">Logout</a>
-        @endif
-        
-        
-
-        <h2>Add new song:</h2>
-		<p style="color:red"><i>Note*: You must login to add new song.</i></p>
-        
-        	<form id="add" method="POST" action="{{url('/rate/add')}}" enctype="multipart/form-data">
-		    {!! csrf_field() !!}
-			    <label>Song: <b style="color:red">*</b></label>
-				<input type="text" name="song" class="form-control"><br>
-				<label>Band: </b></label>
-                <select class="form-control" name="selectBand">
-                       <option value="6">--Select a band--</option>
-                    @foreach($bands as $band)
-                        <option value="<?php echo $band->id;?>">{{$band->name}}</option>
-                    @endforeach
-                </select><br>
-                or Add new band: <input type="text" name="band" placeholder="Add only if not listed above" class="form-control"><br>
-                
-				<label>Upload Mp3:</label>
-				
-				<input id="input-id" type="file" accept=".mp3" name="file" class="form-control"><br>
-				<input type="hidden" id="getfilename" name="uploadedfile" value="">   
-				<input type="hidden" id="csrf_token" name="_token" value="{{ csrf_token() }}">
-
-				<label>YouTube link:</label>
-				<input type="text" name="link" class="form-control"><br>
-				<input type="submit" class="btn btn-default" value="Add">
-			</form>
-	</div>
+            <div id="fb-root"></div>
+            <div class="fb-page" data-href="https://www.facebook.com/Rock-Music-Fans-626992887455709/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Rock-Music-Fans-626992887455709/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Rock-Music-Fans-626992887455709/">Rock Music Fans</a></blockquote></div><br><BR><BR>
+    
+        </div> 
+    </div>
 </div>
-
 
 <script>
 
@@ -245,6 +257,14 @@ $("#input-id").on('fileuploaded', function(event, data, previewId, index) {
     console.log(response);
     $('#getfilename').val(response);
 });
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=690925494396768";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 </script>
 
