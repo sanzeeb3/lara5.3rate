@@ -22,9 +22,11 @@ use DB;
 class RateController extends Controller
 {
     public function index()
-	{   
+	{    
+   
 		$bands=Band::where('id','<>',6)->get();
-		$songs=Song::with('band')->orderBy('views','desc')->get();
+     	$songs=Song::with('band')->orderBy('views','desc')->get();
+
 		return view('rate.index')->with(['bands'=>$bands,'songs'=>$songs]);
 	}
 
@@ -51,7 +53,6 @@ class RateController extends Controller
 
     public function logout()
     { 
-        User::find(Auth::user()->id)->delete();
         Auth::logout();
         return redirect('/')->with('message','logged out!');
     }
@@ -59,13 +60,10 @@ class RateController extends Controller
     public function callback()
     {
         $user = Socialite::driver('facebook')->user(); 
-
-        $newUser=new User();
-        $newUser->name=$user->name;
-        $newUser->email=$user->email;
-        $newUser->remember_token=$user->token;
-        $newUser->avatar=$user->avatar;
-        $newUser->save();
+        $newUser = User::firstOrCreate(
+            ['name' => $user->name, 'email' => $user->email, 'avatar' => $user->avatar,'verified'=>1],
+            ['remember_token' => $user->token,'password'=> str_shuffle('abcdgfdfDSFdsdf34234DSGasdefgh122434567890xsY')]
+        );
 
         Auth::login($newUser, true);
         return redirect('/');

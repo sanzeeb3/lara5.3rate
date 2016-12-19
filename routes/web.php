@@ -20,3 +20,5 @@ Route::post('rate/rateBand', 'RateController@rateBand');
 Route::get('rate/login', 'RateController@login')->name('login');;
 Route::get('rate/logout', 'RateController@logout')->name('logout');;
 Route::get('rate/callback', 'RateController@callback');
+
+

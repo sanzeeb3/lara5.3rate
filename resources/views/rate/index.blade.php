@@ -29,7 +29,7 @@
      				@foreach($bands as $band)
      				<tr>	
      					<td class="bg-info">
-							<div class="search"><a href="{{asset('rate/rateBand')}}" data-id="<?php echo $band->id;?>">{{$band->name}}</a></div>
+							<div class="search"><a href="" data-id="<?php echo $band->id;?>">{{$band->name}}</a></div>
      					</td>
      				
      					<td class="bg-info">
@@ -148,18 +148,19 @@
             <div class="fb-page" data-href="https://www.facebook.com/Rock-Music-Fans-626992887455709/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Rock-Music-Fans-626992887455709/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Rock-Music-Fans-626992887455709/">Rock Music Fans</a></blockquote></div><br><BR><BR>
     
         </div> 
+        
     </div>
 </div>
 
 <script>
 
-var table=$('#featured').DataTable();
+var table1=$('#featured').DataTable();
 
 $(document).on('click','.search',function(e)
 {
         e.preventDefault();
-        var search = $(this).val();
-        table.search(search).draw();
+        var search = $(this).text();
+       table1.search(search).draw();
       
 });   
    

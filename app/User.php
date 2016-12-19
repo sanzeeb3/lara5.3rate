@@ -16,11 +16,12 @@ class User extends Authenticatable
      */
     public $timestamps=false;
     
-    // protected $fillable = [
-    //     'name', 'email', 'password','avatar',
-    // ];
+    protected $fillable = [
+      'id',  'name', 'email', 'password','avatar',
+    ];
 
-    protected $guarded=['id'];  //Except these rest will be considered as fillable
+    //protected $guarded=['id'];  //Except these rest will be considered as fillable
+    
     /**
      * The attributes that should be hidden for arrays.
      *
